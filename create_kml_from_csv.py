@@ -84,7 +84,11 @@ for i in listofcsv:
         tree = ET.ElementTree(kml)
         xml_str = ET.tostring(kml, encoding='utf-8', method='xml')
         xml_str_pretty = minidom.parseString(xml_str).toprettyxml(indent="  ")
-        if not os.path.exists(f'export/{country}'):
-            os.makedirs(f'export/{country}/')
-        with open(f'export/{country}/{newfilename}', 'w', encoding='utf-8') as f:
+        # if not os.path.exists(f'export/{country}'):
+        #     os.makedirs(f'export/{country}/')
+        # with open(f'export/{country}/{newfilename}', 'w', encoding='utf-8') as f:
+        #     f.write(xml_str_pretty)
+        if not os.path.exists(f'//ChickenServer/Data/GPX files/{country}'):
+            os.makedirs(f'//ChickenServer/Data/GPX files/{country}/')
+        with open(f'//ChickenServer/Data/GPX files/{country}/{newfilename}', 'w', encoding='utf-8') as f:
             f.write(xml_str_pretty)
